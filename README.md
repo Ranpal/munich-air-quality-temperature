@@ -1,2 +1,6 @@
-# munich-air-quality-temperature
-Air quality (NO2, PM10) and temperature in Munich: Python, pandas, SQLite
+  
+      # Munich air quality and temperature
+
+    Question: How are NO2 and PM10 concentrations at Munich monitoring stations related to air temperature?
+
+    Status: work in progress (set-up phase).
