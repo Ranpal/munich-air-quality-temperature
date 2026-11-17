@@ -19,7 +19,7 @@ TODO (fill in at the end).
 - DWD marks missing values with -999. These were converted to empty values: 99 hours of temperature over 1997 to 2025, 72 of them in 2025.
 - UBA times are in local time (CET/CEST), DWD times are in UTC. TODO (what we did about it).
 - Allach (DEBY189): no PM10 data found in 2025.
-- TODO: the April 2025 temperature gap.
+- The April 2025 temperature gap: One continuous gap of 69 hours from 22 April 2025 13:00 ITC to 25 April 2025 09:00 UTC and 3 single missing hours in November, 2025. The gaps were left empty and not filled.
 
 ## Results
 TODO (after the analysis).
