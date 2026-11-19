@@ -27,7 +27,7 @@ How are NO2 and PM10 concentrations at Munich monitoring stations related to air
    ```
 4. Open `01_station_metadata.ipynb` and run all cells (internet connection needed). The notebook downloads the data, cleans it and creates the SQLite database `munich_air_temp.db`.
 
-## Data quality notesmunich_air_temp.db
+## Data quality notes munich_air_temp.db
 - DWD marks missing values with -999. These were converted to empty values: 99 hours of temperature over 1997 to 2025, 72 of them in 2025.
 - Temperature gaps in 2025: one continuous gap of 69 hours (22 April 2025 13:00 UTC to 25 April 2025 09:00 UTC) and 3 single missing hours in November. The gaps were left empty and not filled.
 - Time zones: DWD times are in UTC. The UBA documentation says CET/CEST, but both clock-change days in 2025 (30 March and 26 October) have 24 hourly values, which suggests the UBA uses a fixed CET (UTC+1) all year, without summer time. This is an assumption. Before joining, we converted the UBA times to UTC, so that both tables use the same clock.
