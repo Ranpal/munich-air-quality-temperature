@@ -1,6 +1,6 @@
 # Munich air quality and temperature
 
-Status: work in progress.
+Status: first version completed.
 
 ## Question
 How are NO2 and PM10 concentrations at Munich monitoring stations related to air temperature in 2025?
@@ -9,8 +9,9 @@ How are NO2 and PM10 concentrations at Munich monitoring stations related to air
 - Air quality: Umweltbundesamt (UBA) Luftdaten API, hourly values, 2025.
   Source: "Umweltbundesamt mit Daten der Messnetze der Länder und des Bundes".
   Licence: Datenlizenz Deutschland – Namensnennung – Version 2.0 (as listed in the catalogue record for the API; to be re-checked at the end).
-- Temperature: Deutscher Wetterdienst (DWD) Climate Data Center, station München-Stadt (03379), hourly.
-  © Deutscher Wetterdienst. Licence: TODO (check DWD's terms).
+- Temperature: Deutscher Wetterdienst (DWD) Climate Data Center, station München-Stadt (03379), hourly air temperature in °C.
+  Licence: CC BY 4.0 (DWD terms for the CDC OpenData area: https://opendata.dwd.de/climate_environment/CDC/Nutzungsbedingungen_German.pdf).
+  Datenbasis: Deutscher Wetterdienst, eigene Bearbeitung (values converted, joined and averaged).
 
   ## How to reproduce
 
@@ -37,13 +38,31 @@ How are NO2 and PM10 concentrations at Munich monitoring stations related to air
 - Join: NO2 and temperature were joined on the hour (UTC). 288 NO2 rows have no temperature (72 hours × 4 stations).
 
 ## Results
-In progress. SQL queries and plots will be added.
+All values are for 2025: four Munich stations (UBA) and München-Stadt (DWD).
+
+**NO2 is higher at traffic stations than at background stations.** Mean NO2: Landshuter Allee 37.6 µg/m³ and Stachus 24.7 (traffic); Lothstraße 18.0 and Allach 16.8 (background).
+
+![Mean NO2 by station](figures/01_no2_by_station.png)
+
+**PM10 differs less between stations.** Mean PM10: Landshuter Allee 19.2, Stachus 18.8, Lothstraße 15.3 µg/m³ (no PM10 data for Allach).
+
+**NO2 is higher in colder months.** The monthly mean NO2 (4 stations) was 30.5 µg/m³ in January and March and 19.3 in September, while the monthly mean temperature ranged from 2.1 °C (December) to 20.8 °C (June).
+
+![Monthly NO2 and temperature](figures/02_monthly_no2_temperature.png)
+
+**The day-to-day association is weak.** Correlation of daily mean NO2 with daily mean temperature: -0.3. For PM10: -0.15 (1 January excluded, see data quality notes). The points scatter widely.
+
+![Daily values against temperature](figures/03_daily_vs_temperature.png)
+
+These are associations, not causes.
 
 ## Limitations
-- Only one year (2025) and one temperature station (München-Stadt) for all four air quality stations.
-- The time alignment of the two sources rests on an assumption (see Data quality notes).
-- Gaps in the data were left empty and not filled.
-- The analysis shows associations, not causes.
+- One year (2025) and one temperature station (München-Stadt) for all four air quality stations.
+- The time alignment of the two sources rests on an assumption (see data quality notes).
+- Gaps were left empty and not filled.
+- Daily means are averaged over all stations, so traffic and background stations are mixed. PM10 has only three stations.
+- Only a simple linear correlation was calculated. Other factors (wind, traffic volume, heating) were not examined, so the reasons for the seasonal pattern are not known.
+- Associations, not causes.
 
 ## AI assistance
 AI assistance (Claude) was used for learning and debugging. I ran the code myself, checked the outputs and documented the data quality problems.
