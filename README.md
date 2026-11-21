@@ -8,7 +8,7 @@ How are NO2 and PM10 concentrations at Munich monitoring stations related to air
 ## Data
 - Air quality: Umweltbundesamt (UBA) Luftdaten API, hourly values, 2025.
   Source: "Umweltbundesamt mit Daten der Messnetze der Länder und des Bundes".
-  Licence: Datenlizenz Deutschland – Namensnennung – Version 2.0 (as listed in the catalogue record for the API; to be re-checked at the end).
+  Licence: Datenlizenz Deutschland – Namensnennung – Version 2.0 (as listed in the catalogue record for the API).
 - Temperature: Deutscher Wetterdienst (DWD) Climate Data Center, station München-Stadt (03379), hourly air temperature in °C.
   Licence: CC BY 4.0 (DWD terms for the CDC OpenData area: https://opendata.dwd.de/climate_environment/CDC/Nutzungsbedingungen_German.pdf).
   Datenbasis: Deutscher Wetterdienst, eigene Bearbeitung (values converted, joined and averaged).
